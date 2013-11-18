@@ -1,0 +1,18 @@
+-- http://projects.haskell.org/xmobar/
+Config {
+         font = "-Misc-Fixed-Normal-R-Normal--13-120-75-75-C-70-ISO8859-1"
+       , bgColor = "black"
+       , fgColor = "grey"
+       , position = TopSize L 100 16
+       , commands = [ Run MultiCpu ["-t", "<autototal>", "-L","5","-H","40","--low","green","--normal","yellow","--high","red"] 20
+                    , Run Memory ["-t", "<usedratio>%", "--low","green","--normal","yellow","--high","red"] 50
+                    , Run Swap ["-t", "<usedratio>%", "--low","green","--normal","yellow","--high","red"] 100
+                    , Run Date "%a %b %_d %l:%M" "date" 50
+                    , Run StdinReader
+                    , Run Network "eth0" ["-L", "8", "-H", "32", "-l", "#C9A34E", "-n", "#429942" ,"-h", "#A36666"] 10
+                    -- , Run ThermalZone 0 ["-t","<temp>°C"] 30
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "%StdinReader%}{CPU: %multicpu% | %eth0% | MEM: %memory% | SWAP: %swap% | <fc=#ee9a00>%date%</fc>"
+       }
