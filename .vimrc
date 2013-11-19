@@ -18,8 +18,6 @@ set expandtab "supprime les tabulations et met des espaces
 set ai "Auto indent
 set si "Smart indet
 set wrap "Wrap lines
-"autocmd BufRead,BufNewFile   *.pp set tabstop=2|set shiftwidth =2|set softtabstop =2
-"autocmd BufRead,BufNewFile   *.erb set tabstop=2|set shiftwidth =2|set softtabstop =2
 autocmd BufRead,BufNewFile *.sql  set tabstop=2|set shiftwidth =2|set softtabstop =2
 autocmd BufRead,BufNewFile *.rb   set tabstop=2|set shiftwidth =2|set softtabstop =2
 autocmd BufRead,BufNewFile *.html set tabstop=2|set shiftwidth =2|set softtabstop =2
@@ -30,10 +28,6 @@ set hlsearch
 set wildmenu
 set wildmode =list:longest,list:full
 set wildignore =*.o,*.r,*.so,*.sl,*.tar,*.tgz,*.swp,*.bak,*.pyc,*.class
-
-"set  spelllang =fr,en
-"set  spell
-"set  spellsuggest =5
 
 set cursorline
 " Enable mouse and select correctly
@@ -47,13 +41,15 @@ set smartcase
 
 set encoding=utf8
 
-colorscheme desert256
+colorscheme desert
 
-"ctag / taglist
-"let Tlist_Ctags_Cmd = "/usr/bin/ctags"
-"let Tlist_WinWidth = 50
-"map <F4> :TlistToggle<cr>
-"map <F8> :!/usr/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+" GUI stuff
+"set guioptions-=m  "remove menu bar
+set guioptions-=T  "remove toolbar
+set guioptions-=r  "remove right-hand scroll bar
+set guioptions-=L  "remove right-hand scroll bar
+set guioptions-=b  "remove right-hand scroll bar
+set guifont=monospace\ 11
 
 " OMNICOMPLETE
 set completeopt=menuone,longest,preview
@@ -64,7 +60,6 @@ autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
-"autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 "autocmd FileType c set omnifunc=ccomplete#Complete
 
 inoremap <C-space> <C-x><C-o>
@@ -84,6 +79,7 @@ set foldlevel=99
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='jellybeans'
+let g:airline_powerline_fonts = 1
 
 " NERDTree stuff
 map <F3> :NERDTreeToggle<CR>

@@ -1,6 +1,6 @@
 ! Xresources file
 
-!URxvt*termName: rxvt-unicode-256color
+URxvt*termName: rxvt-unicode-256color
 URxvt*loginShell: true
 ! transparency - true or false (default)
 URxvt*transparent: true
@@ -20,9 +20,9 @@ URxvt*scrollstyle: rxvt
 URxvt*saveLines: 20000
 
 ! font color (default is black)
-*foreground: White
+URxvt*foreground: White
 ! background color (prior to tinting) (default is white)
-*background: Black
+URxvt*background: Black
 
 ! Xft: DejaVu fonts
 !  Fedora/debian packages: libXft/libxft2
