@@ -50,10 +50,10 @@ set encoding=utf8
 colorscheme desert
 
 "ctag / taglist
-let Tlist_Ctags_Cmd = "/usr/bin/ctags"
-let Tlist_WinWidth = 50
-map <F4> :TlistToggle<cr>
-map <F8> :!/usr/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+"let Tlist_Ctags_Cmd = "/usr/bin/ctags"
+"let Tlist_WinWidth = 50
+"map <F4> :TlistToggle<cr>
+"map <F8> :!/usr/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 
 " OMNICOMPLETE
 set completeopt=menuone,longest,preview
@@ -79,6 +79,11 @@ set foldlevel=99
 
 " Tab stuff
 " set showtabline=2
+
+" Status line: airline
+set laststatus=2
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='jellybeans'
 
 " NERDTree stuff
 map <F3> :NERDTreeToggle<CR>

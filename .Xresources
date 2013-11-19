@@ -5,6 +5,8 @@ URxvt*transparent: true
 ! shading - 0 to 99 darkens, 101 to 200 lightens.
 URxvt*shading: 20
 
+!URxvt.intensityStyles: false
+
 ! scrollbar - true (default) or false
 URxvt*scrollBar: false
 ! scrollbar position - left=false (default) or right=true
