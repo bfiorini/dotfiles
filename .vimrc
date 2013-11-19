@@ -47,7 +47,7 @@ set smartcase
 
 set encoding=utf8
 
-colorscheme desert
+colorscheme desert256
 
 "ctag / taglist
 "let Tlist_Ctags_Cmd = "/usr/bin/ctags"
