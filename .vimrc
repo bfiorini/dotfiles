@@ -1,3 +1,6 @@
+" Pathogen plugins loaded from .vim/bundle
+execute pathogen#infect()
+
 let mapleader = ","
 set  nocp
 syn  on
