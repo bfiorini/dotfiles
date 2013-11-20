@@ -49,7 +49,7 @@ set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
 set guioptions-=L  "remove right-hand scroll bar
 set guioptions-=b  "remove right-hand scroll bar
-set guifont=Inconsolata-dz\ for\ Powerline\ 11
+set guifont=Monospace\ 11
 
 " OMNICOMPLETE
 set completeopt=menuone,longest,preview
@@ -77,9 +77,6 @@ set foldlevel=99
 
 " Status line: airline
 set laststatus=2
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='murmur'
-let g:airline_powerline_fonts = 1
 
 " NERDTree stuff
 map <F3> :NERDTreeToggle<CR>
