@@ -15,13 +15,14 @@ if [ -f "$userresources" ]; then
 fi
 
 # screen layout
-xrandr --output HDMI1 --mode 1920x1200 --pos 1920x0 --rotate normal --output DP1 --off --output VGA1 --mode 1920x1200 --pos 0x0 --rotate normal
+#xrandr --output HDMI1 --mode 1920x1200 --pos 1920x0 --rotate normal --output DP1 --off --output VGA1 --mode 1920x1200 --pos 0x0 --rotate normal
 
 # Set background to your favorite pic
 nitrogen --restore
 
-# Synapse
 synapse &
+
+dropbox start
 
 # le trayer
 trayer --edge top --align center --SetDockType true --SetPartialStrut false --expand true --widthtype request --tint 0x000000 --heighttype pixel --height 16 --transparent true --alpha 0 &

@@ -1,6 +1,6 @@
 ! Xresources file
 
-URxvt*termName: rxvt-unicode-256color
+!URxvt*termName: rxvt-unicode-256color
 URxvt*loginShell: true
 ! transparency - true or false (default)
 URxvt*transparent: true
