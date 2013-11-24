@@ -24,6 +24,8 @@ synapse &
 
 dropbox start
 
+volti &
+
 # le trayer
 trayer --edge top --align center --SetDockType true --SetPartialStrut false --expand true --widthtype request --tint 0x000000 --heighttype pixel --height 16 --transparent true --alpha 0 &
 
