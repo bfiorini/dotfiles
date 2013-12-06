@@ -1,6 +1,7 @@
 -- http://projects.haskell.org/xmobar/
 Config {
-         font = "-Misc-Fixed-Normal-R-Normal--13-120-75-75-C-70-ISO8859-1"
+         font = "xft:DejaVu Sans Mono-9"
+
        , bgColor = "black"
        , fgColor = "grey"
        , position = TopSize L 100 16

@@ -35,8 +35,8 @@ URxvt*boldFont: xft:DejaVu Sans Mono:bold:pixelsize=15:antialias=true:hinting=tr
 !  the following line to your ~/.bashrc ($HOME/.bashrc) file under
 !  the heading "! User specific aliases and functions":
 !   alias ls="ls -h --color=auto"
-URxvt*color4: SteelBlue1
-URxvt*color12: SteelBlue1
+*color4: SteelBlue1
+*color12: SteelBlue1
 
 ! Disable Perl extensions :
 !URxvt.perl-ext-common:  default,tabbed
@@ -63,5 +63,8 @@ XTerm*locale: true
 XTerm*metaSendsEscape: true
 XTerm*saveLines: 10000
 ! font
-XTerm*faceName: DejaVu Sans Mono:size=12:antialias=true:
-xterm*loginShell: true
+XTerm*faceName: DejaVu Sans Mono:size=11:antialias=true
+XTerm*loginShell: true
+! Colors
+*foreground: White
+*background: Black

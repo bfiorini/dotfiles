@@ -36,7 +36,7 @@ sudo nm-applet &
 xsetroot -cursor_name left_ptr
 
 # start urxvt daemon
-urxvtd -q -o -f
+# urxvtd -q -o -f
 
 # finally, start WM
 exec xmonad

@@ -22,6 +22,11 @@ autocmd BufRead,BufNewFile *.sql  set tabstop=2|set shiftwidth =2|set softtabsto
 autocmd BufRead,BufNewFile *.rb   set tabstop=2|set shiftwidth =2|set softtabstop =2
 autocmd BufRead,BufNewFile *.html set tabstop=2|set shiftwidth =2|set softtabstop =2
 
+" Make lambda look like λ
+au VimEnter * syntax keyword Statement lambda conceal cchar=λ
+au VimEnter * hi! link Conceal Statement
+au VimEnter * set conceallevel=2
+
 " highlight search results 
 set hlsearch
 
