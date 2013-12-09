@@ -65,6 +65,10 @@ XTerm*saveLines: 10000
 ! font
 XTerm*faceName: DejaVu Sans Mono:size=11:antialias=true
 XTerm*loginShell: true
+! Double-click select
+XTerm*VT100.cutNewLine: false
+XTerm*VT100.cutToBeginningOfLine: false
+XTerm*VT100.charClass: 33:48, 37:48, 42:48, 45-47:48, 58:48, 63-64:48, 126:48
 ! Colors
 *foreground: White
 *background: Black
