@@ -1,0 +1,29 @@
+pcm.hdmi_hw {
+    type hw
+    card 1
+    device 3
+}
+
+pcm.hdmi_full {
+    type            softvol
+    slave.pcm       "hdmi_hw"
+    control.name    "Master"
+    control.card    1
+}
+
+pcm.!default {
+    type            plug
+    slave.pcm    "hdmi_full"
+}
+
+# -------------------
+# in /etc/asound.conf
+# 
+# pcm.!default {
+#   type hw
+#   card 1
+# }
+# ctl.!default {  
+#   type hw
+#   card 1
+# }
