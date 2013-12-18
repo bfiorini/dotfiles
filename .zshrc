@@ -59,7 +59,7 @@ alias s='sudo su'
 alias sadm='ssh aiadm'
 alias a='cd /afs/cern.ch/user/b/bfiorini'
 alias aw='cd /afs/cern.ch/user/b/bfiorini/workspace'
-alias root='ssh -l root'
+alias root='ssh -l root -oStrictHostKeyChecking=no'
 
 # Keys.
 case $TERM in
