@@ -4,16 +4,23 @@ pcm.hdmi_hw {
     device 3
 }
 
+pcm.hdmi_duplex {
+    type            asym
+    playback.pcm    "hdmi_hw"
+    capture.pcm     ""
+}
+
 pcm.hdmi_full {
     type            softvol
-    slave.pcm       "hdmi_hw"
+    slave.pcm       "hdmi_duplex"
     control.name    "Master"
     control.card    1
 }
 
+
 pcm.!default {
-    type            plug
-    slave.pcm    "hdmi_full"
+    type        plug
+    slave.pcm   "hdmi_full"
 }
 
 # -------------------
