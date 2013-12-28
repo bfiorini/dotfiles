@@ -41,7 +41,7 @@ toAdd x   =
         -- Restart xmonad
         , ((Main.modMask  , xK_q ), spawn "xmonad --recompile; xmonad --restart")
         -- Run nautilus
-        , ((Main.modMask  , xK_f ), spawn "nautilus --no-desktop")
+        , ((Main.modMask  , xK_f ), spawn "thunar")
         -- Prompt
         , ((Main.modMask  , xK_semicolon ), shellPrompt defaultXPConfig)
         -- Resizable tile

@@ -20,7 +20,7 @@ fi
 # Set background to your favorite pic
 nitrogen --restore
 
-synapse &
+#synapse &
 
 dropbox start
 
@@ -35,11 +35,11 @@ sudo nm-applet &
 # set the cursor
 xsetroot -cursor_name left_ptr
 
-# start urxvt daemon
-# urxvtd -q -o -f
-
 # xmonad and Java gui
 export _JAVA_AWT_WM_NONREPARENTING=1
+
+# file manager daemon
+thunar --daemon &
 
 # finally, start WM
 exec xmonad
