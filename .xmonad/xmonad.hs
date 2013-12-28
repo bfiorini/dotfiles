@@ -29,6 +29,7 @@ defKeys = keys defaultConfig
 myKeys x   = foldr (uncurry M.insert) (defKeys x) (toAdd    x)
 toAdd x   =
     [
+        -- Cycle through workspaces
          ((Main.modMask .|. shiftMask, xK_grave ), prevWS)
         ,((Main.modMask   , xK_grave ), nextWS)
         -- Increment the number of windows in the master area
@@ -69,6 +70,7 @@ myManageHook =
         , className    =? "Skype"          --> doFloat
         , className    =? "vlc"            --> doCenterFloat
         , className    =? "MPlayer"        --> doCenterFloat
+        , className    =? "Audacious"      --> doFloat
     ]
 
 
