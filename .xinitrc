@@ -38,5 +38,8 @@ xsetroot -cursor_name left_ptr
 # start urxvt daemon
 # urxvtd -q -o -f
 
+# xmonad and Java gui
+export _JAVA_AWT_WM_NONREPARENTING=1
+
 # finally, start WM
 exec xmonad
