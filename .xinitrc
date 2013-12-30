@@ -4,8 +4,6 @@
 # As in all Bash/sh scripts lines starting with 
 #    '#' are comments
 
-STARTUP=x-window-manager
-
 # Define Xresources
 userresources=~/.Xresources
 
@@ -14,32 +12,33 @@ if [ -f "$userresources" ]; then
     xrdb -merge "$userresources"
 fi
 
-# screen layout
-#xrandr --output HDMI1 --mode 1920x1200 --pos 1920x0 --rotate normal --output DP1 --off --output VGA1 --mode 1920x1200 --pos 0x0 --rotate normal
+# Le trayer
+trayer --edge top --align center --SetDockType true --SetPartialStrut false --expand true --widthtype request --tint 0x000000 --heighttype pixel --height 16 --transparent true --alpha 0 &
+
+# Volume icon in trayer
+volti &
+
+# Network-Manager applet
+sudo nm-applet &
 
 # Set background to your favorite pic
 nitrogen --restore
 
-#synapse &
-
-dropbox start
-
-volti &
-
-# le trayer
-trayer --edge top --align center --SetDockType true --SetPartialStrut false --expand true --widthtype request --tint 0x000000 --heighttype pixel --height 16 --transparent true --alpha 0 &
-
-# applet réseaux
-sudo nm-applet &
-
-# set the cursor
+# Set the cursor
 xsetroot -cursor_name left_ptr
 
-# xmonad and Java gui
+# fix xmonad and Java gui
 export _JAVA_AWT_WM_NONREPARENTING=1
 
-# file manager daemon
+# File manager daemon
 thunar --daemon &
 
-# finally, start WM
-exec xmonad
+# Dropbox daemon
+dropbox start
+
+# Finally start WM
+if [ -x /usr/bin/ck-launch-session ]; then
+    exec ck-launch-session dbus-launch --exit-with-session xmonad
+else
+    exec xmonad
+fi
