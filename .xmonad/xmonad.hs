@@ -7,8 +7,6 @@ import XMonad.Layout.Grid
 import XMonad.Layout.ResizableTile
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.DynamicLog
-import XMonad.Prompt
-import XMonad.Prompt.Shell
 
 import Data.Bits ((.|.))
 import Data.Ratio ((%))
@@ -25,32 +23,30 @@ myWorkspaces =
 
 
 -- keycode: /usr/include/X11/keysymdef.h
-defKeys = keys defaultConfig
-myKeys x   = foldr (uncurry M.insert) (defKeys x) (toAdd    x)
-toAdd x   =
+defKeys  = keys defaultConfig
+myKeys x = foldr (uncurry M.insert) (defKeys x) (toAdd x)
+toAdd x  =
     [
         -- Cycle through workspaces
-         ((Main.modMask .|. shiftMask, xK_grave ), prevWS)
-        ,((Main.modMask   , xK_grave ), nextWS)
+          ((Main.modMask .|. shiftMask, xK_grave ), prevWS)
+        , ((Main.modMask, xK_grave ), nextWS)
         -- Increment the number of windows in the master area
-        ,((Main.modMask  , xK_comma ), sendMessage (IncMasterN 1))
+        , ((Main.modMask, xK_comma ), sendMessage (IncMasterN 1))
         -- Deincrement the number of windows in the master area
-        ,((Main.modMask  , xK_period), sendMessage (IncMasterN (-1)))
+        , ((Main.modMask, xK_period), sendMessage (IncMasterN (-1)))
         -- Hide status bar
-        ,((Main.modMask  , xK_b ), sendMessage ToggleStruts)
+        , ((Main.modMask, xK_b ), sendMessage ToggleStruts)
         -- Restart xmonad
-        , ((Main.modMask  , xK_q ), spawn "xmonad --recompile; xmonad --restart")
-        -- Run nautilus
-        , ((Main.modMask  , xK_f ), spawn "thunar")
-        -- Prompt
-        , ((Main.modMask  , xK_semicolon ), shellPrompt defaultXPConfig)
+        , ((Main.modMask, xK_q ), spawn "xmonad --recompile;xmonad --restart")
+        -- Run file manager
+        , ((Main.modMask, xK_f ), spawn "thunar")
         -- Resizable tile
-        , ((Main.modMask  , xK_a ), sendMessage MirrorShrink)
-        , ((Main.modMask  , xK_z ), sendMessage MirrorExpand)
+        , ((Main.modMask, xK_a ), sendMessage MirrorShrink)
+        , ((Main.modMask, xK_z ), sendMessage MirrorExpand)
         -- lock screen
-        , ((Main.modMask  , xK_BackSpace ), spawn "i3lock -d")
+        , ((Main.modMask, xK_BackSpace ), spawn "i3lock -d -i ~/.lockscreen.png")
         -- screenshot
-        , ((0  , xK_Print ), spawn "gnome-screenshot")
+        , ((0           , xK_Print ), spawn "gnome-screenshot")
     ]
     ++
     -- the 12 workspaces acces keys
@@ -59,19 +55,24 @@ toAdd x   =
          , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
 
 
-myManageHook =
+myManageHook = composeAll . concat $
     [ 
-          isFullscreen --> doFullFloat
-        , isDialog     --> doCenterFloat
-        , className    =? "Xmessage"       --> doCenterFloat 
-        , className    =? "Gimp"           --> doFloat
-        , className    =? "Chromium"       --> doShift "1"
-        , className    =? "Icedove"        --> doShift "-"
-        , className    =? "Skype"          --> doFloat
-        , className    =? "vlc"            --> doCenterFloat
-        , className    =? "MPlayer"        --> doCenterFloat
-        , className    =? "Audacious"      --> doFloat
+          [ isFullscreen --> doFullFloat ]
+        , [ isDialog     --> doCenterFloat ]
+        , [ title     =? t --> doCenterFloat | t <- myTitleFloats]
+        , [ resource  =? r --> doCenterFloat | r <- myResourceFloats ]
+        , [ className =? c --> doCenterFloat | c <- myCenterFloats ]
+        , [ className =? c --> doFloat       | c <- myFloats ]
+        , [ className =? c --> doIgnore      | c <- myIgnores ]
+        , [ className =? "Chromium" --> doShift "1" ]
+        , [ className =? "Icedove"  --> doShift "-" ]
     ]
+    where
+        myFloats         = ["Gimp", "Skype", "MPlayer", "SMPlayer", "VLC", "Audacious"]
+        myCenterFloats   = ["Xmessage"]
+        myTitleFloats    = ["File Operation Progress"]
+        myResourceFloats = ["Dialog"]
+        myIgnores        = ["trayer"]
 
 
 myLayout = avoidStruts (smartBorders (tiled ||| Mirror tiled ||| Full ||| Grid ||| resizable))
@@ -101,7 +102,7 @@ myConfig = defaultConfig {
     , terminal = "xterm"
     -- , modMask = mod1Mask
     , keys = myKeys
-    , manageHook = manageHook defaultConfig <+> composeAll myManageHook <+> manageDocks
+    , manageHook = manageHook defaultConfig <+> myManageHook <+> manageDocks
     }
 
 -- Ouhlala
