@@ -7,6 +7,7 @@ import XMonad.Layout.Grid
 import XMonad.Layout.ResizableTile
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.EwmhDesktops
 
 import Data.Bits ((.|.))
 import Data.Ratio ((%))
@@ -96,7 +97,7 @@ toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 
 
 -- Main configuration, override the defaults to your liking.
-myConfig = defaultConfig {
+myConfig = ewmh defaultConfig {
      workspaces = myWorkspaces
     , layoutHook = myLayout
     , terminal = "xterm"

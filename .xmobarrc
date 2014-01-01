@@ -18,5 +18,5 @@ Config {
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader%}{Temp:%thermal0%%thermal1%%thermal2% | CPU: %multicpu% | %eth0% | MEM: %memory% | SWAP: %swap% | %date%"
+       , template = "%StdinReader%}{<icon=.xmonad/xbm8x8/temp.xbm/>%thermal0%%thermal1%%thermal2% | Cpu: %multicpu% | %eth0% | Mem: %memory% | Swap: %swap% | %date%"
        }
