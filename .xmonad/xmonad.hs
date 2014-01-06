@@ -45,7 +45,7 @@ toAdd x  =
         , ((Main.modMask, xK_a ), sendMessage MirrorShrink)
         , ((Main.modMask, xK_z ), sendMessage MirrorExpand)
         -- lock screen
-        , ((Main.modMask, xK_BackSpace ), spawn "i3lock -d -i ~/.lockscreen.png")
+        , ((Main.modMask, xK_BackSpace ), spawn "i3lock -d -i ~/.lockscreen.png -t")
         -- screenshot
         , ((0           , xK_Print ), spawn "gnome-screenshot")
     ]
