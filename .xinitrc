@@ -36,6 +36,9 @@ thunar --daemon &
 # Dropbox daemon
 dropbox start
 
+# Clipboard manager
+parcellite &
+
 # Finally start WM
 if [ -x /usr/bin/ck-launch-session ]; then
     exec ck-launch-session dbus-launch --exit-with-session xmonad
