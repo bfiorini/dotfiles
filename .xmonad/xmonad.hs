@@ -29,8 +29,8 @@ myKeys x = foldr (uncurry M.insert) (defKeys x) (toAdd x)
 toAdd x  =
     [
         -- Cycle through workspaces
-          ((Main.modMask .|. shiftMask, xK_grave ), prevWS)
-        , ((Main.modMask, xK_grave ), nextWS)
+          ((Main.modMask, xK_grave ), nextWS)
+        , ((Main.modMask .|. shiftMask, xK_grave ), prevWS)
         -- Increment the number of windows in the master area
         , ((Main.modMask, xK_comma ), sendMessage (IncMasterN 1))
         -- Deincrement the number of windows in the master area
@@ -44,9 +44,11 @@ toAdd x  =
         -- Resizable tile
         , ((Main.modMask, xK_a ), sendMessage MirrorShrink)
         , ((Main.modMask, xK_z ), sendMessage MirrorExpand)
-        -- lock screen
+        -- Lock screen
         , ((Main.modMask, xK_BackSpace ), spawn "i3lock -d -i ~/.lockscreen.png -t")
-        -- screenshot
+        -- Hibernate
+        , ((Main.modMask .|. shiftMask, xK_BackSpace ), spawn "sudo pm-hibernate")
+        -- Screenshot
         , ((0           , xK_Print ), spawn "gnome-screenshot")
     ]
     ++
@@ -98,7 +100,7 @@ toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 
 -- Main configuration, override the defaults to your liking.
 myConfig = ewmh defaultConfig {
-     workspaces = myWorkspaces
+      workspaces = myWorkspaces
     , layoutHook = myLayout
     , terminal = "xterm"
     -- , modMask = mod1Mask
