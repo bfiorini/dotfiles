@@ -16,7 +16,7 @@ fi
 trayer --edge top --align center --SetDockType true --SetPartialStrut false --expand true --widthtype request --tint 0x000000 --heighttype pixel --height 16 --transparent true --alpha 0 &
 
 # Volume icon in trayer
-volti &
+volumeicon &
 
 # Network-Manager applet
 sudo nm-applet &
