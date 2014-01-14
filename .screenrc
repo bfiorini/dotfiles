@@ -25,14 +25,14 @@ bind = resize =
 bind + resize +1
 bind - resize -1
 
-#termcap  xterm hs@:cs=\E[%i%d;%dr:im=\E[4h:ei=\E[4l
-#terminfo xterm hs@:cs=\E[%i%p1%d;%p2%dr:im=\E[4h:ei=\E[4l
-
-termcapinfo xterm* OL=10000
-
 # Window numbering starts at 1, not 0.
 bind c screen 1
 bind ^c screen 1
 bind 0 select 10
 screen 1
 select 1
+
+# vim or pager staying on the screen
+altscreen on
+# scroll!
+termcapinfo xterm*|xterms*|xs|rxvt ti@:te@

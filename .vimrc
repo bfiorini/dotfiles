@@ -46,7 +46,7 @@ set smartcase
 
 set encoding=utf8
 
-colorscheme desert
+colorscheme desert256
 
 " GUI stuff
 "set guioptions-=m  "remove menu bar
