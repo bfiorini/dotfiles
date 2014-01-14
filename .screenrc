@@ -1,2 +1,38 @@
-hardstatus alwayslastline "%w"
-#caption always "%{-b ..}%-w%{+b ..}[[%n%f*%t]]%{-}%+w"
+# turns off the license screen
+startup_message off
+# prevent epilepsy
+vbell off
+# Run everything in UTF-8.
+defutf8 on
+# If a window goes unresponsive, don't block the whole session waiting for it.
+nonblock on
+# that's why screen is used, right?
+autodetach on
+# Just in case it isn't clear...
+shell zsh
+# history
+defscrollback 10000
+
+hardstatus alwayslastline
+hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %m-%d %{W}%c %{g}]'
+
+bind j focus down
+bind k focus up
+bind l focus right
+bind h focus left
+bind V split -v
+bind = resize =
+bind + resize +1
+bind - resize -1
+
+#termcap  xterm hs@:cs=\E[%i%d;%dr:im=\E[4h:ei=\E[4l
+#terminfo xterm hs@:cs=\E[%i%p1%d;%p2%dr:im=\E[4h:ei=\E[4l
+
+termcapinfo xterm* OL=10000
+
+# Window numbering starts at 1, not 0.
+bind c screen 1
+bind ^c screen 1
+bind 0 select 10
+screen 1
+select 1
