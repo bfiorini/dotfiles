@@ -1,3 +1,4 @@
+term screen-256color
 # turns off the license screen
 startup_message off
 # prevent epilepsy
