@@ -1,19 +1,21 @@
 " Pathogen plugins loaded from .vim/bundle
 execute pathogen#infect()
 
-let mapleader = ","
-set  nocp
-syn  on
-set syntax =on
-filetype  indent plugin on
+" Enablie features which are not Vi compatible but really really nice
+set nocp
+syn on
+set syntax=on
+filetype indent plugin on
 
+" Enable line numbes
 set nu
 
+" Show matching braces
 set showmatch
 
-set tabstop =4
-set shiftwidth =4
-set softtabstop =4
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
 set expandtab "supprime les tabulations et met des espaces
 set ai "Auto indent
 set si "Smart indet
@@ -30,10 +32,12 @@ au VimEnter * set conceallevel=2
 " highlight search results 
 set hlsearch
 
+" Completion menu in status line
 set wildmenu
-set wildmode =list:longest,list:full
-set wildignore =*.o,*.r,*.so,*.sl,*.tar,*.tgz,*.swp,*.bak,*.pyc,*.class
+set wildmode=longest:full,full
+set wildignore=*.o,*.r,*.so,*.sl,*.tar,*.tgz,*.swp,*.bak,*.pyc,*.class
 
+" Highlight the cursor line
 set cursorline
 " Enable mouse and select correctly
 set mouse=a
@@ -41,7 +45,8 @@ set mouse=a
 " Set to auto read when a file is changed from the outside
 set autoread
 
-set ignorecase "Ignore case when searching
+" Ignore case when searching
+set ignorecase
 set smartcase
 
 set encoding=utf8
@@ -62,21 +67,6 @@ set guioptions-=L  "remove left-hand scroll bar
 set guioptions-=b  "remove bottom-hand scroll bar
 set guifont=Monospace\ 11
 
-" OMNICOMPLETE
-set completeopt=menuone,longest,preview
-filetype plugin on
-set ofu=syntaxcomplete#Complete
-autocmd FileType python set omnifunc=pythoncomplete#Complete
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
-"autocmd FileType c set omnifunc=ccomplete#Complete
-
-inoremap <C-space> <C-x><C-o>
-autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-
 " Folding (collapse)
 set foldmethod=indent
 nnoremap <space> za
@@ -86,8 +76,9 @@ set foldlevel=99
 " Tab stuff
 " set showtabline=2
 
-" Status line: airline
+" Always display status line
 set laststatus=2
+set statusline=%t%m\ [%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%r%y%=%c,%l/%L\ %P
 
 " NERDTree stuff
 map <F3> :NERDTreeToggle<CR>
@@ -95,10 +86,11 @@ let NERDTreeShowBookmarks=1
 autocmd vimenter * if !argc() | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
-" the working directory is always the one where the active buffer is located
+" The working directory is always the one where the active buffer is located
 set autochdir
 
 " My awesome mappings
+let mapleader="\\"
 map <Leader>w' ciw''<Esc>P
 map <Leader>W' ciW''<Esc>P
 map <Leader>w" ciw""<Esc>P
