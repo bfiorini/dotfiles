@@ -45,22 +45,8 @@ plugins=(git debian screen systemd)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-
 export EDITOR=/usr/bin/vim
-
-# Alias
-alias ls='ls --color=auto --human-readable --group-directories-first --classify'
-alias ll='ls --color=auto -lh'
-alias la='ls --color=auto -la'
-alias lla='ls --color=auto -lha'
-alias lll='ls --color=auto -lh | less'
-alias skype='PULSE_LATENCY_MSEC=30 skype'
-
-alias s='sudo su'
-alias sadm='ssh aiadm'
-alias a='cd /afs/cern.ch/user/b/bfiorini'
-alias aw='cd /afs/cern.ch/user/b/bfiorini/workspace'
-alias root='ssh -l root -oStrictHostKeyChecking=no'
+[[ -f $HOME/.zsh_aliases ]] && source $HOME/.zsh_aliases
 
 # Keys.
 case $TERM in
