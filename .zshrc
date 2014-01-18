@@ -54,6 +54,7 @@ alias ll='ls --color=auto -lh'
 alias la='ls --color=auto -la'
 alias lla='ls --color=auto -lha'
 alias lll='ls --color=auto -lh | less'
+alias skype='PULSE_LATENCY_MSEC=30 skype'
 
 alias s='sudo su'
 alias sadm='ssh aiadm'
