@@ -29,7 +29,7 @@ au VimEnter * syntax keyword Statement lambda conceal cchar=λ
 au VimEnter * hi! link Conceal Statement
 au VimEnter * set conceallevel=2
 
-" highlight search results 
+" highlight search results
 set hlsearch
 
 " Completion menu in status line
@@ -88,6 +88,9 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 
 " The working directory is always the one where the active buffer is located
 set autochdir
+
+" Remove trailing spaces:
+autocmd FileType c,cpp,java,php,ruby,python,puppet  autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 " My awesome mappings
 let mapleader="\\"
