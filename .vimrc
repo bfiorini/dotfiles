@@ -85,6 +85,7 @@ map <F3> :NERDTreeToggle<CR>
 let NERDTreeShowBookmarks=1
 autocmd vimenter * if !argc() | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+let NERDTreeIgnore = ['\.pyc$']
 
 " The working directory is always the one where the active buffer is located
 set autochdir
