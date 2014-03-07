@@ -62,7 +62,8 @@ myManageHook = composeAll . concat $
     [ 
           [ isFullscreen --> doFullFloat ]
         , [ isDialog     --> doCenterFloat ]
-        , [ title     =? t --> doCenterFloat | t <- myTitleFloats]
+        , [ title     =? "DOTA 2 - OpenGL" --> doIgnore ]
+        , [ title     =? t --> doCenterFloat | t <- myTitleFloats ]
         , [ resource  =? r --> doCenterFloat | r <- myResourceFloats ]
         , [ className =? c --> doCenterFloat | c <- myCenterFloats ]
         , [ className =? c --> doFloat       | c <- myFloats ]
@@ -75,7 +76,7 @@ myManageHook = composeAll . concat $
         myCenterFloats   = ["Xmessage"]
         myTitleFloats    = ["File Operation Progress"]
         myResourceFloats = ["Dialog"]
-        myIgnores        = ["trayer"]
+        myIgnores        = ["trayer", "Steam", "steam", "hl2_linux"]
 
 
 myLayout = avoidStruts (smartBorders (tiled ||| Mirror tiled ||| Full ||| Grid ||| resizable))
