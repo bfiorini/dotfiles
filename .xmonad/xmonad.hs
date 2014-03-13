@@ -8,6 +8,7 @@ import XMonad.Layout.ResizableTile
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
+import XMonad.Actions.GridSelect
 
 import Data.Bits ((.|.))
 import Data.Ratio ((%))
@@ -50,6 +51,8 @@ toAdd x  =
         , ((Main.modMask .|. shiftMask, xK_BackSpace ), spawn "sudo pm-hibernate")
         -- Screenshot
         , ((0           , xK_Print ), spawn "gnome-screenshot")
+        -- GridSelect
+        , ((Main.modMask, xK_g), goToSelected defaultGSConfig)
     ]
     ++
     -- the 12 workspaces acces keys
@@ -62,21 +65,23 @@ myManageHook = composeAll . concat $
     [ 
           [ isFullscreen --> doFullFloat ]
         , [ isDialog     --> doCenterFloat ]
-        , [ title     =? "DOTA 2 - OpenGL" --> doIgnore ]
+        , [ title     =? "DOTA 2 - OpenGL" --> doFullFloat ]
         , [ title     =? t --> doCenterFloat | t <- myTitleFloats ]
         , [ resource  =? r --> doCenterFloat | r <- myResourceFloats ]
         , [ className =? c --> doCenterFloat | c <- myCenterFloats ]
         , [ className =? c --> doFloat       | c <- myFloats ]
+        , [ className =? c --> doFullFloat   | c <- myFullFloats ]
         , [ className =? c --> doIgnore      | c <- myIgnores ]
         , [ className =? "Chromium" --> doShift "1" ]
         , [ className =? "Icedove"  --> doShift "-" ]
     ]
     where
-        myFloats         = ["Gimp", "Skype", "MPlayer", "SMPlayer", "VLC", "Audacious"]
+        myFloats         = ["Gimp", "Skype", "MPlayer", "SMPlayer", "VLC", "Audacious", "Steam"]
+        myFullFloats     = ["steam"]
         myCenterFloats   = ["Xmessage"]
         myTitleFloats    = ["File Operation Progress"]
         myResourceFloats = ["Dialog"]
-        myIgnores        = ["trayer", "Steam", "steam", "hl2_linux"]
+        myIgnores        = ["trayer"]
 
 
 myLayout = avoidStruts (smartBorders (tiled ||| Mirror tiled ||| Full ||| Grid ||| resizable))
