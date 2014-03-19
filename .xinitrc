@@ -5,7 +5,6 @@
 # As in all Bash/sh scripts lines starting with 
 #    '#' are comments
 
-DEFAULTSESSION=xmonad
 userresources=~/.Xresources
 
 startxmonad() {
@@ -34,7 +33,7 @@ startxfce() {
     if [ -x /usr/bin/ck-launch-session ]; then
         exec ck-launch-session dbus-launch --exit-with-session startxfce4
     else
-        exec xmonad
+        exec startxfce4
     fi
 }
 
