@@ -53,4 +53,5 @@ xscreensaver &
 case "$1" in
     xfce) startxfce;;
     xmonad) startxmonad;;
+    *) startxmonad;;
 esac
