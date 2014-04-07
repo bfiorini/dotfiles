@@ -47,6 +47,8 @@ thunar --daemon &
 dropbox start
 # Volume icon in trayer
 pasystray &
+# Screensaver
+xscreensaver &
 
 case "$1" in
     xfce) startxfce;;

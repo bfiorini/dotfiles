@@ -46,7 +46,7 @@ toAdd x  =
         , ((Main.modMask, xK_a ), sendMessage MirrorShrink)
         , ((Main.modMask, xK_z ), sendMessage MirrorExpand)
         -- Lock screen
-        , ((Main.modMask, xK_BackSpace ), spawn "i3lock -d -i ~/.lockscreen.png -t")
+        , ((Main.modMask, xK_BackSpace ), spawn "xscreensaver-command -lock")
         -- Hibernate
         , ((Main.modMask .|. shiftMask, xK_BackSpace ), spawn "sudo pm-hibernate")
         -- Screenshot
