@@ -48,7 +48,7 @@ dropbox start
 # Volume icon in trayer
 pasystray &
 # Screensaver
-xscreensaver &
+xscreensaver -nosplash &
 
 case "$1" in
     xfce) startxfce;;

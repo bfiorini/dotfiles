@@ -88,7 +88,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 let NERDTreeIgnore = ['\.pyc$']
 
 " The working directory is always the one where the active buffer is located
-set autochdir
+" set autochdir
 
 " Remove trailing spaces:
 autocmd FileType c,cpp,java,php,ruby,python,puppet  autocmd BufWritePre <buffer> :%s/\s\+$//e
