@@ -36,11 +36,11 @@ startxmonad() {
     # Clipboard manager
     parcellite &
     # Finally start WM
-    exec ck-launch-session dbus-launch --exit-with-session xmonad
+    exec dbus-launch --exit-with-session xmonad
 }
 
 startxfce() {
-    exec ck-launch-session dbus-launch --exit-with-session startxfce4
+    exec dbus-launch --exit-with-session startxfce4
 }
 
 common
