@@ -7,6 +7,21 @@
 
 userresources=~/.Xresources
 
+common() {
+    # Merge what is available
+    if [ -f "$userresources" ]; then
+        xrdb -merge "$userresources"
+    fi
+    # File manager daemon
+    thunar --daemon &
+    # Dropbox daemon
+    dropbox start
+    # Volume icon in trayer
+    pasystray &
+    # Screensaver
+    xscreensaver -nosplash &
+}
+
 startxmonad() {
     # Le trayer
     trayer --edge top --align center --SetDockType true --SetPartialStrut false --expand true --widthtype request --tint 0x000000 --heighttype pixel --height 16 --transparent true --alpha 0 &
@@ -21,37 +36,17 @@ startxmonad() {
     # Clipboard manager
     parcellite &
     # Finally start WM
-    if [ -x /usr/bin/ck-launch-session ]; then
-        exec ck-launch-session dbus-launch --exit-with-session xmonad
-    else
-        exec xmonad
-    fi
+    exec ck-launch-session dbus-launch --exit-with-session xmonad
 }
 
 startxfce() {
-    # Finally start WM
-    if [ -x /usr/bin/ck-launch-session ]; then
-        exec ck-launch-session dbus-launch --exit-with-session startxfce4
-    else
-        exec startxfce4
-    fi
+    exec ck-launch-session dbus-launch --exit-with-session startxfce4
 }
 
-# Merge what is available
-if [ -f "$userresources" ]; then
-    xrdb -merge "$userresources"
-fi
-# File manager daemon
-thunar --daemon &
-# Dropbox daemon
-dropbox start
-# Volume icon in trayer
-pasystray &
-# Screensaver
-xscreensaver -nosplash &
+common
 
 case "$1" in
-    xfce) startxfce;;
+    startxfce4) startxfce;;
     xmonad) startxmonad;;
     *) startxmonad;;
 esac
