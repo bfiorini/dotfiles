@@ -2,13 +2,10 @@
 # ~/.xinitrc
 # This file is sourced when running startx and 
 #    other programs which call xinit
-# As in all Bash/sh scripts lines starting with 
-#    '#' are comments
-
-userresources=~/.Xresources
 
 common() {
-    # Merge what is available
+    userresources=~/.Xresources
+    # Merge Xresources
     if [ -f "$userresources" ]; then
         xrdb -merge "$userresources"
     fi
