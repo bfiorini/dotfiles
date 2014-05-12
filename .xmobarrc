@@ -7,11 +7,11 @@ Config {
        , position = TopSize L 100 16
        , commands = [
                       Run StdinReader
-                    , Run MultiCpu ["-t", "<autototal>", "-L", "10", "-H", "50", "-l", "green", "-n", "yellow", "-h", "red"] 10
+                    , Run MultiCpu ["-t", "<autototal>", "-L", "10", "-H", "50", "-l", "green", "-n", "yellow", "-h", "red"] 5
                     , Run Memory ["-t", "<usedratio>%", "-l", "green", "-n", "yellow", "-h", "red"] 50
                     , Run Swap ["-t", "<usedratio>%", "-l", "green", "-n", "yellow", "-h", "red"] 100
                     , Run Date "<fc=orange>%a %b %_d %l:%M</fc>" "date" 50
-                    , Run Network "eth0" ["-L", "8", "-H", "32", "-l", "#C9A34E", "-n", "#429942" ,"-h", "#A36666"] 10
+                    , Run Network "eth0" ["-L", "8", "-H", "32", "-l", "#C9A34E", "-n", "#429942" ,"-h", "#A36666"] 5
                     , Run ThermalZone 0 ["-t", " <temp>°C", "-L", "30", "-H", "50", "-l", "#58D3F7", "-n", "orange", "-h", "red", "-x", ""] 10
                     , Run ThermalZone 1 ["-t", " <temp>°C", "-L", "30", "-H", "50", "-l", "#58D3F7", "-n", "orange", "-h", "red", "-x", ""] 10
                     , Run ThermalZone 2 ["-t", " <temp>°C", "-L", "30", "-H", "50", "-l", "#58D3F7", "-n", "yellow", "-h", "red", "-x", ""] 10
