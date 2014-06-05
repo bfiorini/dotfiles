@@ -84,7 +84,7 @@ myManageHook = composeAll . concat $
         myIgnores        = ["trayer"]
 
 
-myLayout = avoidStruts (smartBorders (tiled ||| Mirror tiled ||| Full ||| Grid ||| resizable))
+myLayout = avoidStruts (smartBorders (tiled ||| Mirror tiled ||| noBorders Full ||| Grid ||| resizable))
           where
               tiled     = Tall nmaster delta ratio
               resizable = ResizableTall nmaster delta ratio []
