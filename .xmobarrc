@@ -9,7 +9,7 @@ Config {
                       Run StdinReader
                     , Run MultiCpu ["-t", "<autototal>", "-L", "10", "-H", "50", "-l", "green", "-n", "yellow", "-h", "red"] 5
                     , Run Memory ["-t", "<usedratio>%", "-l", "green", "-n", "yellow", "-h", "red"] 50
-                    , Run Swap ["-t", "<usedratio>%", "-l", "green", "-n", "yellow", "-h", "red"] 100
+                    , Run Swap ["-t", "<usedratio>%", "-L", "1", "-H", "1", "-l", "green", "-n", "yellow", "-h", "red"] 100
                     , Run Date "<fc=orange>%a %b %_d %l:%M</fc>" "date" 50
                     , Run Network "eth0" ["-L", "8", "-H", "32", "-l", "#C9A34E", "-n", "#429942" ,"-h", "#A36666"] 5
                     , Run ThermalZone 0 ["-t", " <temp>°C", "-L", "30", "-H", "50", "-l", "#58D3F7", "-n", "orange", "-h", "red", "-x", ""] 10

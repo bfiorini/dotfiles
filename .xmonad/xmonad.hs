@@ -108,7 +108,7 @@ toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 myConfig = ewmh defaultConfig {
       workspaces = myWorkspaces
     , layoutHook = myLayout
-    , terminal = "xterm"
+    , terminal = "xfce4-terminal"
     -- , modMask = mod1Mask
     , keys = myKeys
     , manageHook = manageHook defaultConfig <+> myManageHook <+> manageDocks
