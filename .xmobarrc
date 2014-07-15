@@ -9,9 +9,9 @@ Config {
                       Run StdinReader
                     , Run MultiCpu ["-t", "<autototal>", "-L", "10", "-H", "50", "-l", "green", "-n", "yellow", "-h", "red"] 5
                     , Run Memory ["-t", "<usedratio>%", "-l", "green", "-n", "yellow", "-h", "red"] 10
-                    , Run Swap ["-t", "<usedratio>%", "-L", "1", "-H", "1", "-l", "green", "-n", "yellow", "-h", "red"] 10
+                    , Run Swap ["-t", "<usedratio>%", "-L", "0", "-H", "0", "-l", "green", "-n", "yellow", "-h", "red"] 10
                     , Run Date "<fc=orange>%a %b %_d %l:%M</fc>" "date" 50
-                    , Run Network "eth0" ["-L", "8", "-H", "32", "-l", "#C9A34E", "-n", "#429942" ,"-h", "#A36666"] 5
+                    , Run Network "eth0" ["-t", "<dev>: <icon=.xmonad/xbm8x8/net_down_03.xbm/><fc=#FF9900><rx></fc>KB <icon=.xmonad/xbm8x8/net_up_03.xbm/><fc=#00CCFF><tx></fc>KB"] 5
                     , Run ThermalZone 0 ["-t", " <temp>°C", "-L", "30", "-H", "50", "-l", "#58D3F7", "-n", "orange", "-h", "red", "-x", ""] 10
                     , Run ThermalZone 1 ["-t", " <temp>°C", "-L", "30", "-H", "50", "-l", "#58D3F7", "-n", "orange", "-h", "red", "-x", ""] 10
                     , Run ThermalZone 2 ["-t", " <temp>°C", "-L", "30", "-H", "50", "-l", "#58D3F7", "-n", "yellow", "-h", "red", "-x", ""] 10
