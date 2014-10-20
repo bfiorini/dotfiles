@@ -31,7 +31,7 @@ startxmonad() {
     # fix xmonad and Java gui
     export _JAVA_AWT_WM_NONREPARENTING=1
     # Clipboard manager
-    parcellite &
+    #parcellite &
     # Finally start WM
     exec dbus-launch --exit-with-session xmonad
 }
