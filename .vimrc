@@ -24,6 +24,10 @@ autocmd BufRead,BufNewFile *.sql  set tabstop=2|set shiftwidth =2|set softtabsto
 autocmd BufRead,BufNewFile *.rb   set tabstop=2|set shiftwidth =2|set softtabstop =2
 autocmd BufRead,BufNewFile *.html set tabstop=2|set shiftwidth =2|set softtabstop =2
 
+set textwidth=79
+set colorcolumn=+1
+au VimEnter * hi! ColorColumn ctermbg=0 guibg=Black
+
 " Make lambda look like λ
 if v:version > 702
     au VimEnter * syntax keyword Statement lambda conceal cchar=λ
