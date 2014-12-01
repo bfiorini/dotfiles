@@ -25,8 +25,10 @@ autocmd BufRead,BufNewFile *.rb   set tabstop=2|set shiftwidth =2|set softtabsto
 autocmd BufRead,BufNewFile *.html set tabstop=2|set shiftwidth =2|set softtabstop =2
 
 set textwidth=79
-set colorcolumn=+1
-au VimEnter * hi! ColorColumn ctermbg=0 guibg=Black
+if exists('+colorcolumn')
+    let &colorcolumn=join(range(80,999),",")
+    au VimEnter * hi! ColorColumn ctermbg=0 guibg=Black
+endif
 
 " Make lambda look like λ
 if v:version > 702
