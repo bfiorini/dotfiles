@@ -23,6 +23,8 @@ set wrap "Wrap lines
 autocmd BufRead,BufNewFile *.sql  set tabstop=2|set shiftwidth =2|set softtabstop =2
 autocmd BufRead,BufNewFile *.rb   set tabstop=2|set shiftwidth =2|set softtabstop =2
 autocmd BufRead,BufNewFile *.html set tabstop=2|set shiftwidth =2|set softtabstop =2
+autocmd BufRead,BufNewFile *.java set tabstop=2|set shiftwidth =2|set softtabstop =2
+autocmd BufRead,BufNewFile *.xml  set tabstop=2|set shiftwidth =2|set softtabstop =2
 
 set textwidth=79
 if exists('+colorcolumn')
