@@ -17,6 +17,8 @@ common() {
     pasystray &
     # Screensaver
     xscreensaver -nosplash &
+    # Compose key
+    setxkbmap -option compose:ralt
 }
 
 startxmonad() {
