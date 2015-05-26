@@ -1,7 +1,6 @@
 -- http://projects.haskell.org/xmobar/
 Config {
          font = "xft:DejaVu Sans Mono-8"
-
        , bgColor = "black"
        , fgColor = "grey"
        , position = TopSize L 100 16
@@ -11,7 +10,7 @@ Config {
                     , Run Memory ["-t", "<usedratio>%", "-l", "green", "-n", "yellow", "-h", "red"] 10
                     , Run Swap ["-t", "<usedratio>%", "-L", "1", "-H", "1", "-l", "green", "-n", "yellow", "-h", "red"] 10
                     , Run Date "<fc=orange>%a %b %_d %l:%M</fc>" "date" 50
-                    , Run Network "eth0" ["-t", "<dev>: <icon=.xmonad/xbm8x8/net_down_03.xbm/><fc=cyan><rx></fc>KB <icon=.xmonad/xbm8x8/net_up_03.xbm/><fc=orange><tx></fc>KB"] 5
+                    , Run Network "eth0" ["-t", "<dev>: <fc=cyan><icon=.xmonad/xbm8x8/net_down_03.xbm/><rx>KB</fc> <fc=orange><icon=.xmonad/xbm8x8/net_up_03.xbm/><tx>KB</fc>"] 5
                     , Run ThermalZone 0 ["-t", " <temp>°C", "-L", "35", "-H", "50", "-l", "cyan", "-n", "green", "-h", "red", "-x", ""] 10
                     , Run ThermalZone 1 ["-t", " <temp>°C", "-L", "35", "-H", "50", "-l", "cyan", "-n", "green", "-h", "red", "-x", ""] 10
                     , Run ThermalZone 2 ["-t", " <temp>°C", "-L", "35", "-H", "50", "-l", "cyan", "-n", "green", "-h", "red", "-x", ""] 10
