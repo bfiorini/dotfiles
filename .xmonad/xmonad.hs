@@ -73,6 +73,7 @@ myManageHook = composeAll . concat $
         , [ className =? c --> doFullFloat   | c <- myFullFloats ]
         , [ className =? c --> doIgnore      | c <- myIgnores ]
         , [ className =? "Chromium" --> doShift "1" ]
+        , [ className =? "Google-chrome" --> doShift "1" ]
         , [ className =? "Icedove"  --> doShift "-" ]
     ]
     where
