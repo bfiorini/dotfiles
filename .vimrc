@@ -26,7 +26,7 @@ autocmd BufRead,BufNewFile *.html set tabstop=2|set shiftwidth =2|set softtabsto
 autocmd BufRead,BufNewFile *.java set tabstop=2|set shiftwidth =2|set softtabstop =2
 autocmd BufRead,BufNewFile *.xml  set tabstop=2|set shiftwidth =2|set softtabstop =2
 
-set textwidth=79
+set textwidth=0 " no new line
 if exists('+colorcolumn')
     let &colorcolumn=join(range(80,999),",")
     au VimEnter * hi! ColorColumn ctermbg=0 guibg=Black
