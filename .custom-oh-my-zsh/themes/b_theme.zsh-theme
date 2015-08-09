@@ -3,6 +3,8 @@
 # https://github.com/bfiorini/dotfiles
 
 # Check if we are on SSH or not
+# To have this working with root, add this to visudo
+# Defaults env_keep += "SSH_CLIENT SSH_CONNECTION SSH_TTY SSH_AUTH_SOCK"
 if [[ -n "$SSH_CLIENT"  ||  -n "$SSH2_CLIENT" ]]; then
     eval host='%{$fg[yellow]%}%M' #SSH
 else
