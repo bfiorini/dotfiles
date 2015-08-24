@@ -1,13 +1,14 @@
 ! Xresources file
 
 !URxvt*termName: rxvt-unicode-256color
+URxvt*termName: xterm-256color
 URxvt*loginShell: true
 ! transparency - true or false (default)
 URxvt*transparent: true
 ! shading - 0 to 99 darkens, 101 to 200 lightens.
 URxvt*shading: 20
 
-!URxvt.intensityStyles: false
+URxvt.intensityStyles: false
 
 ! scrollbar - true (default) or false
 URxvt*scrollBar: false
@@ -27,8 +28,8 @@ URxvt*background: Black
 ! Xft: DejaVu fonts
 !  Fedora/debian packages: libXft/libxft2
 !  Fedora/debian packages: dejavu-sans-mono-fonts/ttf-dejavu 
-URxvt*font: xft:DejaVu Sans Mono:pixelsize=15:antialias=true:hinting=true
-URxvt*boldFont: xft:DejaVu Sans Mono:bold:pixelsize=15:antialias=true:hinting=true
+URxvt*font: xft:DejaVu Sans Mono:pixelsize=16:antialias=true:hinting=true
+URxvt*boldFont: xft:DejaVu Sans Mono:bold:pixelsize=16:antialias=true:hinting=true
 
 ! Replace blue folder colors with a lighter shade for clarity. To
 !  set colored folders and files within urxvt, xterm, and aterm, add
@@ -50,8 +51,8 @@ URxvt*scrollWithBuffer: true
 ! scroll back to the bottom on keypress
 URxvt*scrollTtyKeypress: true
 
-URxvt*keysym.Home: \033[1~
-URxvt*keysym.End: \033[4~
+URxvt*keysym.Home: \033OH
+URxvt*keysym.End: \033OF
 
 
 ! XTERM
@@ -63,7 +64,7 @@ XTerm*locale: true
 XTerm*metaSendsEscape: true
 XTerm*saveLines: 10000
 ! font
-XTerm*faceName: DejaVu Sans Mono:size=11:antialias=true
+XTerm*faceName: DejaVu Sans Mono:size=12:antialias=true
 XTerm*loginShell: true
 ! Double-click select
 XTerm*VT100.cutNewLine: false

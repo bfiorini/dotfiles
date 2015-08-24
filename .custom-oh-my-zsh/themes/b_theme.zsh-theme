@@ -18,7 +18,7 @@ else # root
 fi
 
 eval sep='%{$fg[cyan]%}@'
-eval dir='%{$fg_bold[blue]%}%2~'
+eval dir='%{$fg[blue]%}%2~'
 PROMPT='${user}${sep}${host}:${dir} $(git_prompt_info)%{$reset_color%}%(!.#.$) '
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[red]%}‹"

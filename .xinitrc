@@ -19,6 +19,8 @@ common() {
     xscreensaver -nosplash &
     # Compose key
     setxkbmap -option compose:ralt
+    # Terminal daemon
+    urxvtd -q -o -f
 }
 
 startxmonad() {
