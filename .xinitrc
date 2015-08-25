@@ -12,7 +12,7 @@ common() {
     # File manager daemon
     thunar --daemon &
     # Dropbox daemon
-    dropbox start
+    (sleep 60 && dropbox start)&
     # Volume icon in trayer
     pasystray &
     # Screensaver
