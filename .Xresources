@@ -71,8 +71,8 @@ XTerm*VT100.cutNewLine: false
 XTerm*VT100.cutToBeginningOfLine: false
 XTerm*VT100.charClass: 33:48, 37:48, 42:48, 45-47:48, 58:48, 63-64:48, 126:48
 ! Colors
-*foreground: White
-*background: Black
+XTerm*foreground: White
+XTerm*background: Black
 ! do not scroll with output
 XTerm*scrollTtyOutput: false
 ! scroll back to the bottom on keypress
