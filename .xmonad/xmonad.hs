@@ -9,6 +9,8 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Actions.GridSelect
+import XMonad.Config.Xfce
+import XMonad.Hooks.SetWMName
 
 import Data.Bits ((.|.))
 import Data.Ratio ((%))
@@ -21,7 +23,7 @@ modMask = mod1Mask
 
 myWorkspaces :: [String]
 myWorkspaces =
-    ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "="]
+    ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
 
 
 -- keycode: /usr/include/X11/keysymdef.h
@@ -53,11 +55,12 @@ toAdd x  =
         , ((0           , xK_Print ), spawn "gnome-screenshot")
         -- GridSelect
         , ((Main.modMask, xK_g), goToSelected defaultGSConfig)
+        , ((Main.modMask, xK_p ), spawn "xfce4-popup-whiskermenu")
     ]
     ++
     -- the 12 workspaces acces keys
     [((m .|. Main.modMask, k), windows $ f i)
-         | (i, k) <- zip myWorkspaces [xK_1,xK_2,xK_3,xK_4,xK_5,xK_6,xK_7,xK_8,xK_9,xK_0,xK_minus,xK_equal]
+         | (i, k) <- zip myWorkspaces [xK_1,xK_2,xK_3,xK_4,xK_5,xK_6,xK_7,xK_8,xK_9]
          , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
 
 
@@ -77,7 +80,7 @@ myManageHook = composeAll . concat $
         , [ className =? "Icedove"  --> doShift "-" ]
     ]
     where
-        myFloats         = ["Gimp", "Skype", "MPlayer", "SMPlayer", "VLC", "Audacious", "Steam"]
+        myFloats         = ["Gimp", "Skype", "MPlayer", "SMPlayer", "VLC", "Audacious", "Steam", "Pidgin"]
         myFullFloats     = ["steam"]
         myCenterFloats   = ["Xmessage"]
         myTitleFloats    = ["File Operation Progress"]
@@ -85,7 +88,7 @@ myManageHook = composeAll . concat $
         myIgnores        = ["trayer"]
 
 
-myLayout = avoidStruts (smartBorders (tiled ||| Mirror tiled ||| noBorders Full ||| Grid ||| resizable))
+myLayout = avoidStruts (smartBorders (tiled ||| Mirror tiled ||| noBorders Full))
           where
               tiled     = Tall nmaster delta ratio
               resizable = ResizableTall nmaster delta ratio []
@@ -109,10 +112,12 @@ toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 myConfig = ewmh defaultConfig {
       workspaces = myWorkspaces
     , layoutHook = myLayout
+    , handleEventHook = fullscreenEventHook
     , terminal = "urxvtc"
     -- , modMask = mod1Mask
     , keys = myKeys
     , manageHook = manageHook defaultConfig <+> myManageHook <+> manageDocks
+    , logHook = setWMName "LG3D"
     }
 
 -- Ouhlala

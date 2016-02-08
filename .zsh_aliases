@@ -6,7 +6,9 @@ alias lll='ls --color=auto -lh | less'
 alias skype='PULSE_LATENCY_MSEC=30 skype'
 
 alias s='sudo su'
-alias aw='cd ~/Workspace/'
+alias aw='cd ~/workspace/'
 alias root='ssh -l root -oStrictHostKeyChecking=no'
 
 alias onlyx="startx &; disown; exit"
+
+alias rgrep="rgrep --color=auto --exclude-dir={.bzr,.cvs,.git,.hg,.svn}"
