@@ -55,7 +55,7 @@ toAdd x  =
         , ((0           , xK_Print ), spawn "gnome-screenshot")
         -- GridSelect
         , ((Main.modMask, xK_g), goToSelected defaultGSConfig)
-        , ((Main.modMask, xK_p ), spawn "xfce4-popup-whiskermenu")
+        --, ((Main.modMask, xK_p ), spawn "xfce4-popup-whiskermenu")
     ]
     ++
     -- the 12 workspaces acces keys
@@ -80,7 +80,7 @@ myManageHook = composeAll . concat $
         , [ className =? "Icedove"  --> doShift "-" ]
     ]
     where
-        myFloats         = ["Gimp", "Skype", "MPlayer", "SMPlayer", "VLC", "Audacious", "Steam", "Pidgin"]
+        myFloats         = ["Gimp", "Skype", "MPlayer", "SMPlayer", "VLC", "Audacious", "Steam"]
         myFullFloats     = ["steam"]
         myCenterFloats   = ["Xmessage"]
         myTitleFloats    = ["File Operation Progress"]
