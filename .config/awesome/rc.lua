@@ -188,28 +188,28 @@ for s = 1, screen.count() do
     -- Create the wibox
     mywibox[s] = awful.wibox({ position = "top", screen = s })
 
-    -- Initialize widget
-    cpuwidget = awful.widget.graph()
-    -- Graph properties
-    cpuwidget:set_width(50)
-    cpuwidget:set_background_color("#494B4F")
-    cpuwidget:set_color({ type = "linear", from = { 0, 0 }, to = { 10,0 }, stops = { {0, "#FF5656"}, {0.5, "#88A175"}, 
-                        {1, "#AECF96" }}})
-    -- Register widget
-    vicious.register(cpuwidget, vicious.widgets.cpu, "$1")
+    -- Cpu widget
+    cpuwidget = wibox.widget.textbox()
+    vicious.cache(vicious.widgets.cpu)
+    vicious.register(cpuwidget, vicious.widgets.cpu, "cpu: $1% | ", 1)
 
-    -- Initialize widget
-    memwidget = awful.widget.progressbar()
-    -- Progressbar properties
-    memwidget:set_width(8)
-    memwidget:set_height(10)
-    memwidget:set_vertical(true)
-    memwidget:set_background_color("#494B4F")
-    memwidget:set_border_color(nil)
-    memwidget:set_color({ type = "linear", from = { 0, 0 }, to = { 10,0 }, stops = { {0, "#AECF96"}, {0.5, "#88A175"}, 
-    {1, "#FF5656"}}})
-    -- Register widget
-    vicious.register(memwidget, vicious.widgets.mem, "$1", 13)
+    -- Memory widget
+    memwidget = wibox.widget.textbox()
+    vicious.cache(vicious.widgets.mem)
+    vicious.register(memwidget, vicious.widgets.mem, "mem: $1% | swap: $5% | ", 1)
+
+    -- Battery widget
+    batterywidget = wibox.widget.textbox()
+    vicious.register(batterywidget, vicious.widgets.bat, "bat: $1 $2% | ", 1, "BAT0")
+
+    -- Thermal widget
+    thermalwidget = wibox.widget.textbox()
+    vicious.cache(vicious.widgets.thermal)
+    vicious.register(thermalwidget, vicious.widgets.thermal, "temp: $1°С | ", 1, "thermal_zone1")
+
+    -- Network Widget
+    netwidget = wibox.widget.textbox()
+    vicious.register(netwidget, vicious.widgets.net, 'net: <span color="#FF7F00">↓${wlp2s0 down_kb}</span> <span color="#0F87B4">${wlp2s0 up_kb}↑</span> ', 1)
 
     -- Widgets that are aligned to the left
     local left_layout = wibox.layout.fixed.horizontal()
@@ -224,6 +224,9 @@ for s = 1, screen.count() do
     if s == 1 then
         right_layout:add(cpuwidget)
         right_layout:add(memwidget)
+        right_layout:add(thermalwidget)
+        right_layout:add(batterywidget)
+        right_layout:add(netwidget)
         right_layout:add(wibox.widget.systray())
         right_layout:add(mytextclock)
     end
@@ -300,6 +303,8 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "n", awful.client.restore),
     awful.key({ modkey,           }, "BackSpace", function() awful.util.spawn("xscreensaver-command -lock") end),
     awful.key({ modkey, "Control" }, "f", function() awful.util.spawn("thunar") end),
+    awful.key({ }, "XF86MonBrightnessDown", function() awful.util.spawn("xbacklight -dec 10") end),
+    awful.key({ }, "XF86MonBrightnessUp", function() awful.util.spawn("xbacklight -inc 10") end),
 
     -- Prompt
     awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
@@ -382,8 +387,17 @@ end
 
 clientbuttons = awful.util.table.join(
     awful.button({ }, 1, function (c) client.focus = c; c:raise() end),
-    awful.button({ modkey }, 1, awful.mouse.client.move),
-    awful.button({ modkey }, 3, awful.mouse.client.resize))
+    awful.button({ modkey }, 1,
+                 function (c)
+                     awful.client.floating.set(c, true)
+                     awful.mouse.client.move()
+                 end),
+    awful.button({ modkey }, 3,
+                 function (c)
+
+                     awful.client.floating.set(c, true)
+                     awful.mouse.client.resize()
+                 end))
 
 -- Set keys
 root.keys(globalkeys)
@@ -410,6 +424,14 @@ awful.rules.rules = {
     -- Set Firefox to always map on tags number 2 of screen 1.
     -- { rule = { class = "Firefox" },
     --   properties = { tag = tags[1][2] } },
+    { rule = { class = "Icedove" },
+      properties = { tag = tags[1][9] } },
+    { rule = { class = "Slack" },
+      properties = { tag = tags[1][8] } },
+    { rule = { class = "Pidgin" },
+      properties = { tag = tags[1][8] } },
+    { rule = { class = "Spotify" },
+      properties = { tag = tags[1][7] } },
 }
 -- }}}
 
