@@ -1,0 +1,14 @@
+# Network-Manager applet
+sudo nm-applet &
+# File manager daemon
+thunar --daemon &
+# Dropbox daemon
+(sleep 60 && dropbox start)&
+# Volume icon in trayer
+pasystray &
+# Screensaver
+xscreensaver -nosplash &
+# Compose key
+setxkbmap -option compose:ralt
+# Terminal daemon
+urxvtd -q -o -f
