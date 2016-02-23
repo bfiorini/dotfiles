@@ -2,8 +2,6 @@
 sudo nm-applet &
 # File manager daemon
 thunar --daemon &
-# Dropbox daemon
-(sleep 60 && dropbox start)&
 # Volume icon in trayer
 pasystray &
 # Screensaver
@@ -12,3 +10,8 @@ xscreensaver -nosplash &
 setxkbmap -option compose:ralt
 # Terminal daemon
 urxvtd -q -o -f
+# clipboard manger
+parcellite &
+
+# Dropbox daemon
+#(sleep 20 && dropbox start)&
