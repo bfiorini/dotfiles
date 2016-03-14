@@ -209,7 +209,16 @@ for s = 1, screen.count() do
 
     -- Network Widget
     netwidget = wibox.widget.textbox()
-    vicious.register(netwidget, vicious.widgets.net, 'net: <span color="#FF7F00">↓${wlp2s0 down_kb}</span> <span color="#0F87B4">${wlp2s0 up_kb}↑</span> ', 1)
+    vicious.register(netwidget, vicious.widgets.net,
+        function (widget, args)
+            if args["{enx9cebe819f6cb carrier}"] == 1 then
+                return 'net: <span color="#FF7F00">↓'..args["{enx9cebe819f6cb down_kb}"]..'</span> <span color="#0F87B4">'..args["{enx9cebe819f6cb up_kb}"]..'↑</span> '
+            elseif args["{wlp2s0 carrier}"] == 1 then
+                return 'net: <span color="#FF7F00">↓'..args["{wlp2s0 down_kb}"]..'</span> <span color="#0F87B4">'..args["{wlp2s0 up_kb}"]..'↑</span> '
+            else
+                return 'net: -'
+            end
+        end, 1)
 
     -- Widgets that are aligned to the left
     local left_layout = wibox.layout.fixed.horizontal()
