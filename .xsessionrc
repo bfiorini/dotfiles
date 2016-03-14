@@ -12,6 +12,8 @@ setxkbmap -option compose:ralt
 urxvtd -q -o -f
 # clipboard manger
 parcellite &
+# redshift eye saver
+redshift-gtk &
 
 # Dropbox daemon
 #(sleep 20 && dropbox start)&
