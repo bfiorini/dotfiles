@@ -85,10 +85,15 @@ end
 
 -- {{{ Tags
 -- Define a tag table which hold all screen tags.
-tags = {}
+tags = {
+    names = { 1, 2, 3, 4, 5, 6, 7, 8, 9 },
+    layouts = { layouts[10], layouts[10], layouts[2],
+                layouts[2], layouts[2], layouts[2],
+                layouts[2], layouts[2], layouts[2] }
+}
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
-    tags[s] = awful.tag({ 1, 2, 3, 4, 5, 6, 7, 8, 9 }, s, layouts[2])
+    tags[s] = awful.tag(tags.names, s, tags.layouts)
 end
 -- }}}
 
@@ -213,6 +218,8 @@ for s = 1, screen.count() do
         function (widget, args)
             if args["{enx9cebe819f6cb carrier}"] == 1 then
                 return 'net: <span color="#FF7F00">↓'..args["{enx9cebe819f6cb down_kb}"]..'</span> <span color="#0F87B4">'..args["{enx9cebe819f6cb up_kb}"]..'↑</span> '
+            elseif args["{enx0264716d0e05 carrier}"] == 1 then
+                return 'net: <span color="#FF7F00">↓'..args["{enx0264716d0e05 down_kb}"]..'</span> <span color="#0F87B4">'..args["{enx0264716d0e05 up_kb}"]..'↑</span> '
             elseif args["{wlp2s0 carrier}"] == 1 then
                 return 'net: <span color="#FF7F00">↓'..args["{wlp2s0 down_kb}"]..'</span> <span color="#0F87B4">'..args["{wlp2s0 up_kb}"]..'↑</span> '
             elseif args["{wlan0 carrier}"] == 1 then
@@ -443,6 +450,8 @@ awful.rules.rules = {
       properties = { tag = tags[1][8] } },
     { rule = { class = "Spotify" },
       properties = { tag = tags[1][7] } },
+    { rule = { class = "jetbrains-idea-ce" },
+      properties = { tag = tags[1][2] } },
 }
 -- }}}
 
