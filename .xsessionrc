@@ -14,6 +14,8 @@ urxvtd -q -o -f
 parcellite &
 # redshift eye saver
 redshift-gtk &
+# composite
+compton -b --backend glx --vsync opengl-swc &
 
 # Dropbox daemon
 #(sleep 20 && dropbox start)&
