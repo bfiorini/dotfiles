@@ -203,10 +203,6 @@ for s = 1, screen.count() do
     vicious.cache(vicious.widgets.mem)
     vicious.register(memwidget, vicious.widgets.mem, "mem: $1% | swap: $5% | ", 1)
 
-    -- Battery widget
-    batterywidget = wibox.widget.textbox()
-    vicious.register(batterywidget, vicious.widgets.bat, "bat: $1 $2% | ", 1, "BAT0")
-
     -- Thermal widget
     thermalwidget = wibox.widget.textbox()
     vicious.cache(vicious.widgets.thermal)
@@ -243,7 +239,6 @@ for s = 1, screen.count() do
         right_layout:add(cpuwidget)
         right_layout:add(memwidget)
         right_layout:add(thermalwidget)
-        right_layout:add(batterywidget)
         right_layout:add(netwidget)
         right_layout:add(wibox.widget.systray())
         right_layout:add(mytextclock)
