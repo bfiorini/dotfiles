@@ -16,6 +16,8 @@ parcellite &
 redshift-gtk &
 # composite
 compton -b --backend glx --vsync opengl-swc &
+# battery bar in tray
+fdpowermon &
 
 # Dropbox daemon
 #(sleep 20 && dropbox start)&
