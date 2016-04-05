@@ -1,5 +1,5 @@
 # Network-Manager applet
-nm-applet &
+sudo nm-applet &
 # File manager daemon
 thunar --daemon &
 # Volume icon in trayer
