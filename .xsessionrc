@@ -15,7 +15,7 @@ parcellite &
 # redshift eye saver
 redshift-gtk &
 # composite
-compton -b --backend glx --vsync opengl-swc &
+compton -b --backend glx --vsync opengl &
 # battery bar in tray
 fdpowermon &
 
