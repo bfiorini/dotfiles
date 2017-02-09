@@ -54,27 +54,11 @@ URxvt*scrollTtyKeypress: true
 URxvt*keysym.Home: \033OH
 URxvt*keysym.End: \033OF
 
-
-! XTERM
-! 256 colors
-XTerm*termName: xterm-256color
-! utf8
-XTerm*locale: true
-! fix Alt key
-XTerm*metaSendsEscape: true
-XTerm*saveLines: 10000
-! font
-XTerm*faceName: DejaVu Sans Mono:size=12:antialias=true
-XTerm*loginShell: true
-! Double-click select
-XTerm*VT100.cutNewLine: false
-XTerm*VT100.cutToBeginningOfLine: false
-XTerm*VT100.charClass: 33:48, 37:48, 42:48, 45-47:48, 58:48, 63-64:48, 126:48
-! Colors
-XTerm*foreground: White
-XTerm*background: Black
-! do not scroll with output
-XTerm*scrollTtyOutput: false
-! scroll back to the bottom on keypress
-XTerm*scrollKey: true
-XTerm*multiScroll: true
+! Fonts config
+Xft.antialias:  1
+Xft.autohint:   0
+Xft.dpi:        96
+Xft.hinting:    0
+Xft.hintstyle:  hintnone
+Xft.lcdfilter:  lcddefault
+Xft.rgba:       rgb
