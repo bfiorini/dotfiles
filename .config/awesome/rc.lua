@@ -222,6 +222,8 @@ for s = 1, screen.count() do
                 return 'net: <span color="#FF7F00">↓'..args["{wlan0 down_kb}"]..'</span> <span color="#0F87B4">'..args["{wlan0 up_kb}"]..'↑</span> '
             elseif args["{eth0 carrier}"] == 1 then
                 return 'net: <span color="#FF7F00">↓'..args["{eth0 down_kb}"]..'</span> <span color="#0F87B4">'..args["{eth0 up_kb}"]..'↑</span> '
+            elseif args["{enp0s31f6 carrier}"] == 1 then
+                return 'net: <span color="#FF7F00">↓'..args["{enp0s31f6 down_kb}"]..'</span> <span color="#0F87B4">'..args["{enp0s31f6 up_kb}"]..'↑</span> '
             else
                 return 'net: -'
             end
