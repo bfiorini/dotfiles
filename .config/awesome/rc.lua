@@ -4,6 +4,7 @@ local awful = require("awful")
 require("awful.autofocus")
 -- Widget and layout library
 local wibox = require("wibox")
+local lain  = require("lain")
 -- Theme handling library
 local beautiful = require("beautiful")
 -- Notification library
@@ -120,6 +121,11 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 -- {{{ Wibar
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()
+local calendar = lain.widget.calendar()
+lain.widget.calendar({
+    cal = "ccal",
+    attach_to = { mytextclock },
+})
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = awful.util.table.join(
