@@ -21,6 +21,12 @@ common() {
     setxkbmap -option compose:ralt
     # Terminal daemon
     urxvtd -q -o -f
+    # don't activate screensaver
+    xset s off
+    # disable DPMS (Energy Star) features.
+    xset -dpms
+    # don't blank the video device
+    xset s noblank
 }
 
 startxmonad() {
