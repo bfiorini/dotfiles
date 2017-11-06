@@ -1,0 +1,24 @@
+# Global .gitignore file, use it like that:
+# git config --global core.excludesfile ~/.gitignore_global
+# https://help.github.com/articles/ignoring-files/#create-a-global-gitignore
+#
+# Github .gitignore templates:
+# https://github.com/github/gitignore/
+
+
+# Vim
+
+# Swap
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-v][a-z]
+[._]sw[a-p]
+
+# Session
+Session.vim
+
+# Temporary
+.netrwhist
+*~
+# Auto-generated tag files
+tags
