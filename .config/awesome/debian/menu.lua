@@ -1,6 +1,6 @@
 -- automatically generated file. Do not edit (see /usr/share/doc/menu/html)
 
-module("debian.menu")
+local awesome = awesome
 
 Debian_menu = {}
 
@@ -10,37 +10,31 @@ Debian_menu["Debian_Applications_Accessibility"] = {
 Debian_menu["Debian_Applications_Editors"] = {
 	{"Xedit","xedit"},
 }
-Debian_menu["Debian_Applications_Emulators"] = {
-	{"VirtualBox","/usr/bin/virtualbox","/usr/share/pixmaps/virtualbox.xpm"},
-}
-Debian_menu["Debian_Applications_File_Management"] = {
-	{"Thunar","/usr/bin/thunar"},
-	{"Xarchiver","/usr/bin/xarchiver","/usr/share/pixmaps/xarchiver.xpm"},
-	{"Xfdesktop","xfdesktop"},
-}
 Debian_menu["Debian_Applications_Graphics"] = {
-	{"The GIMP","/usr/bin/gimp","/usr/share/pixmaps/gimp.xpm"},
+	{"dotty","/usr/bin/dotty"},
+	{"lefty","/usr/bin/lefty"},
+	{"Pixmap","/usr/bin/pixmap"},
 	{"X Window Snapshot","xwd | xwud"},
 }
 Debian_menu["Debian_Applications_Network_Communication"] = {
-	{"Pidgin","/usr/bin/pidgin","/usr/share/pixmaps/pidgin-menu.xpm"},
+	{"Telnet", "x-terminal-emulator -e ".."/usr/bin/telnet.netkit"},
 	{"Xbiff","xbiff"},
 }
+Debian_menu["Debian_Applications_Network_File_Transfer"] = {
+	{"Transmission BitTorrent Client (GTK)","/usr/bin/transmission-gtk","/usr/share/pixmaps/transmission.xpm"},
+}
 Debian_menu["Debian_Applications_Network_Web_Browsing"] = {
-	{"Iceweasel","iceweasel","/usr/share/pixmaps/iceweasel.xpm"},
+	{"Google Chrome","/opt/google/chrome/google-chrome","/opt/google/chrome/product_logo_32.xpm"},
+	{"w3m", "x-terminal-emulator -e ".."/usr/bin/w3m /usr/share/doc/w3m/MANUAL.html"},
 }
 Debian_menu["Debian_Applications_Network"] = {
 	{ "Communication", Debian_menu["Debian_Applications_Network_Communication"] },
+	{ "File Transfer", Debian_menu["Debian_Applications_Network_File_Transfer"] },
 	{ "Web Browsing", Debian_menu["Debian_Applications_Network_Web_Browsing"] },
-}
-Debian_menu["Debian_Applications_Programming"] = {
-	{"BeanShell (text)", "x-terminal-emulator -e ".."/usr/bin/bsh"},
-	{"BeanShell (windowed)","/usr/bin/xbsh"},
-	{"Giggle","/usr/bin/giggle"},
-	{"MySQL Workbench","/usr/bin/mysql-workbench","/usr/share/pixmaps/mysql-workbench.xpm"},
 }
 Debian_menu["Debian_Applications_Science_Mathematics"] = {
 	{"Bc", "x-terminal-emulator -e ".."/usr/bin/bc"},
+	{"Dc", "x-terminal-emulator -e ".."/usr/bin/dc"},
 	{"Xcalc","xcalc"},
 }
 Debian_menu["Debian_Applications_Science"] = {
@@ -50,22 +44,15 @@ Debian_menu["Debian_Applications_Shells"] = {
 	{"Bash", "x-terminal-emulator -e ".."/bin/bash --login"},
 	{"Dash", "x-terminal-emulator -e ".."/bin/dash -i"},
 	{"Sh", "x-terminal-emulator -e ".."/bin/sh --login"},
-	{"Zsh", "x-terminal-emulator -e ".."/bin/zsh5"},
+	{"Zsh", "x-terminal-emulator -e ".."/bin/zsh"},
 }
 Debian_menu["Debian_Applications_Sound"] = {
-	{"pasystray","/usr/bin/pasystray"},
-	{"pavucontrol","/usr/bin/pavucontrol"},
+	{"paman","/usr/bin/paman"},
+	{"pavumeter","/usr/bin/pavumeter"},
 }
 Debian_menu["Debian_Applications_System_Administration"] = {
 	{"Debian Task selector", "x-terminal-emulator -e ".."su-to-root -c tasksel"},
 	{"Editres","editres"},
-	{"GNOME partition editor","su-to-root -X -c /usr/sbin/gparted","/usr/share/pixmaps/gparted.xpm"},
-	{"GTK+ 2.0 Theme Switch","/usr/bin/gtk-theme-switch2"},
-	{"LXAppearance","/usr/bin/lxappearance"},
-	{"nitrogen","/usr/bin/nitrogen"},
-	{"QtConfig","/usr/bin/qtconfig-qt4"},
-	{"Reportbug", "x-terminal-emulator -e ".."/usr/bin/reportbug --exit-prompt"},
-	{"Reportbug (GTK+)","/usr/bin/reportbug --exit-prompt --ui gtk2"},
 	{"Xclipboard","xclipboard"},
 	{"Xfce Application Finder","xfce4-appfinder","/usr/share/pixmaps/xfce4-appfinder.xpm"},
 	{"Xfontsel","xfontsel"},
@@ -73,11 +60,9 @@ Debian_menu["Debian_Applications_System_Administration"] = {
 	{"Xrefresh","xrefresh"},
 }
 Debian_menu["Debian_Applications_System_Hardware"] = {
-	{"ARandR","arandr"},
 	{"Xvidtune","xvidtune"},
 }
 Debian_menu["Debian_Applications_System_Monitoring"] = {
-	{"htop", "x-terminal-emulator -e ".."/usr/bin/htop"},
 	{"Pstree", "x-terminal-emulator -e ".."/usr/bin/pstree.x11","/usr/share/pixmaps/pstree16.xpm"},
 	{"Top", "x-terminal-emulator -e ".."/usr/bin/top"},
 	{"Xconsole","xconsole -file /dev/xconsole"},
@@ -86,6 +71,7 @@ Debian_menu["Debian_Applications_System_Monitoring"] = {
 }
 Debian_menu["Debian_Applications_System_Package_Management"] = {
 	{"Aptitude Package Manager (text)", "x-terminal-emulator -e ".."/usr/bin/aptitude-curses"},
+	{"Synaptic Package Manager","x-terminal-emulator -e synaptic-pkexec","/usr/share/synaptic/pixmaps/synaptic_32x32.xpm"},
 }
 Debian_menu["Debian_Applications_System"] = {
 	{ "Administration", Debian_menu["Debian_Applications_System_Administration"] },
@@ -94,9 +80,10 @@ Debian_menu["Debian_Applications_System"] = {
 	{ "Package Management", Debian_menu["Debian_Applications_System_Package_Management"] },
 }
 Debian_menu["Debian_Applications_Terminal_Emulators"] = {
-	{"Rxvt-Unicode","rxvt-unicode","/usr/share/pixmaps/urxvt.xpm"},
-	{"XTerm","xterm","/usr/share/pixmaps/xterm-color_32x32.xpm"},
-	{"XTerm (Unicode)","uxterm","/usr/share/pixmaps/xterm-color_32x32.xpm"},
+	{"X-Terminal as root (GKsu)","/usr/bin/gksu -u root /usr/bin/x-terminal-emulator","/usr/share/pixmaps/gksu-debian.xpm"},
+}
+Debian_menu["Debian_Applications_Tools"] = {
+	{"ccal", "x-terminal-emulator -e ".."/usr/bin/ccal -p"},
 }
 Debian_menu["Debian_Applications_Viewers"] = {
 	{"Xditview","xditview"},
@@ -104,16 +91,14 @@ Debian_menu["Debian_Applications_Viewers"] = {
 Debian_menu["Debian_Applications"] = {
 	{ "Accessibility", Debian_menu["Debian_Applications_Accessibility"] },
 	{ "Editors", Debian_menu["Debian_Applications_Editors"] },
-	{ "Emulators", Debian_menu["Debian_Applications_Emulators"] },
-	{ "File Management", Debian_menu["Debian_Applications_File_Management"] },
 	{ "Graphics", Debian_menu["Debian_Applications_Graphics"] },
 	{ "Network", Debian_menu["Debian_Applications_Network"] },
-	{ "Programming", Debian_menu["Debian_Applications_Programming"] },
 	{ "Science", Debian_menu["Debian_Applications_Science"] },
 	{ "Shells", Debian_menu["Debian_Applications_Shells"] },
 	{ "Sound", Debian_menu["Debian_Applications_Sound"] },
 	{ "System", Debian_menu["Debian_Applications_System"] },
 	{ "Terminal Emulators", Debian_menu["Debian_Applications_Terminal_Emulators"] },
+	{ "Tools", Debian_menu["Debian_Applications_Tools"] },
 	{ "Viewers", Debian_menu["Debian_Applications_Viewers"] },
 }
 Debian_menu["Debian_Games_Toys"] = {
@@ -128,8 +113,8 @@ Debian_menu["Debian_Games"] = {
 	{ "Toys", Debian_menu["Debian_Games_Toys"] },
 }
 Debian_menu["Debian_Help"] = {
+	{"Info", "x-terminal-emulator -e ".."info"},
 	{"Xman","xman"},
-	{"yelp","/usr/bin/yelp"},
 }
 Debian_menu["Debian_Screen_Locking"] = {
 	{"Lock Screen (XScreenSaver)","/usr/bin/xscreensaver-command -lock"},
@@ -148,9 +133,16 @@ Debian_menu["Debian_Screen"] = {
 	{ "Locking", Debian_menu["Debian_Screen_Locking"] },
 	{ "Saving", Debian_menu["Debian_Screen_Saving"] },
 }
+Debian_menu["Debian_Window_Managers"] = {
+	{"awesome",function () awesome.exec("/usr/bin/awesome") end,"/usr/share/pixmaps/awesome.xpm"},
+}
 Debian_menu["Debian"] = {
 	{ "Applications", Debian_menu["Debian_Applications"] },
 	{ "Games", Debian_menu["Debian_Games"] },
 	{ "Help", Debian_menu["Debian_Help"] },
 	{ "Screen", Debian_menu["Debian_Screen"] },
+	{ "Window Managers", Debian_menu["Debian_Window_Managers"] },
 }
+
+debian = { menu = { Debian_menu = Debian_menu } }
+return debian
