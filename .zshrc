@@ -89,3 +89,4 @@ bindkey "^S" history-incremental-pattern-search-forward
 
 # To use ChefDK https://docs.chef.io/install_dk.html
 #eval "$(chef shell-init zsh)"
+autoload zmv
