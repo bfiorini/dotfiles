@@ -136,9 +136,8 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 -- {{{ Wibar
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()
-local calendar = lain.widget.calendar()
-lain.widget.calendar({
-    cal = "ccal",
+local calendar = lain.widget.cal()
+lain.widget.cal({
     attach_to = { mytextclock },
 })
 
