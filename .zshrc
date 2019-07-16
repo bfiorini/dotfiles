@@ -8,6 +8,9 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_CUSTOM=$HOME/.custom-oh-my-zsh
 ZSH_THEME="b_theme"
 
+
+ZSH_DISABLE_COMPFIX=true
+
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
@@ -90,3 +93,7 @@ bindkey "^S" history-incremental-pattern-search-forward
 # To use ChefDK https://docs.chef.io/install_dk.html
 #eval "$(chef shell-init zsh)"
 autoload zmv
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/b/.sdkman"
+[[ -s "/home/b/.sdkman/bin/sdkman-init.sh" ]] && source "/home/b/.sdkman/bin/sdkman-init.sh"

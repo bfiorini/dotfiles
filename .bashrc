@@ -117,7 +117,8 @@ fi
 
 
 alias s='sudo su'
-alias sadm='ssh aiadm'
-alias a='cd /afs/cern.ch/user/b/bfiorini'
-alias w='cd /afs/cern.ch/user/b/bfiorini/workspace'
 alias root='ssh -l root'
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/b/.sdkman"
+[[ -s "/home/b/.sdkman/bin/sdkman-init.sh" ]] && source "/home/b/.sdkman/bin/sdkman-init.sh"
