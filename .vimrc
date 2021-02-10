@@ -27,6 +27,7 @@ autocmd BufRead,BufNewFile *.java set tabstop=2|set shiftwidth =2|set softtabsto
 autocmd BufRead,BufNewFile *.js   set tabstop=2|set shiftwidth =2|set softtabstop =2
 autocmd BufRead,BufNewFile *.json set tabstop=2|set shiftwidth =2|set softtabstop =2
 autocmd BufRead,BufNewFile *.xml  set tabstop=2|set shiftwidth =2|set softtabstop =2
+autocmd BufRead,BufNewFile *.py  set tabstop=2|set shiftwidth =2|set softtabstop =2
 
 set textwidth=0 " no new line
 if exists('+colorcolumn')
