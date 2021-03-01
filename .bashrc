@@ -126,3 +126,9 @@ export NVM_DIR="$HOME/.nvm"
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/b/.sdkman"
 [[ -s "/home/b/.sdkman/bin/sdkman-init.sh" ]] && source "/home/b/.sdkman/bin/sdkman-init.sh"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/b/google-cloud-sdk/path.bash.inc' ]; then . '/home/b/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/b/google-cloud-sdk/completion.bash.inc' ]; then . '/home/b/google-cloud-sdk/completion.bash.inc'; fi

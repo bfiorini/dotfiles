@@ -44,7 +44,7 @@ DISABLE_AUTO_UPDATE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git debian screen systemd nvm)
+plugins=(git debian screen systemd)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -95,5 +95,14 @@ bindkey "^S" history-incremental-pattern-search-forward
 autoload zmv
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/b/.sdkman"
-[[ -s "/home/b/.sdkman/bin/sdkman-init.sh" ]] && source "/home/b/.sdkman/bin/sdkman-init.sh"
+export SDKMAN_DIR=$HOME/.sdkman
+[[ -s $HOME/.sdkman/bin/sdkman-init.sh ]] && source $HOME/.sdkman/bin/sdkman-init.sh
+
+# The next line updates PATH for the Google Cloud SDK.
+[[ -s $HOME/google-cloud-sdk/path.zsh.inc ]] && source $HOME/google-cloud-sdk/path.zsh.inc
+
+# The next line enables shell command completion for gcloud.
+[[ -s $HOME/google-cloud-sdk/completion.zsh.inc ]] && source $HOME/google-cloud-sdk/completion.zsh.inc
+
+# Add local bin dir
+path+=$HOME/bin
