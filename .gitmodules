@@ -7,6 +7,3 @@
 [submodule ".vim/bundle/arduino-syntax"]
 	path = .vim/bundle/arduino-syntax
 	url = https://github.com/sudar/vim-arduino-syntax
-[submodule ".config/awesome/lain"]
-	path = .config/awesome/lain
-	url = https://github.com/copycat-killer/lain.git
