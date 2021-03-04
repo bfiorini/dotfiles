@@ -44,7 +44,7 @@ DISABLE_AUTO_UPDATE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git debian screen systemd)
+plugins=(git debian systemd docker docker-compose kubectl)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -106,3 +106,9 @@ export SDKMAN_DIR=$HOME/.sdkman
 
 # Add local bin dir
 path+=$HOME/bin
+# Flux
+path+=/snap/fluxctl/current/bin
+export FLUX_FORWARD_NAMESPACE=flux
+
+# kubectl autocomplete
+[[ /usr/bin/kubectl ]] && source <(kubectl completion zsh)
