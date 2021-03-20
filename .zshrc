@@ -109,6 +109,8 @@ path+=$HOME/bin
 # Flux
 path+=/snap/fluxctl/current/bin
 export FLUX_FORWARD_NAMESPACE=flux
+# fix openssl path for python3 in docker-compose
+export LD_LIBRARY_PATH="/usr/local/lib"
 
 # kubectl autocomplete
 [[ /usr/bin/kubectl ]] && source <(kubectl completion zsh)
