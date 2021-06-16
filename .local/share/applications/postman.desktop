@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=Postman
+Icon=/home/b/Postman-linux-x64-8.3.1/Postman/app/resources/app/assets/icon.png
+Exec=/home/b/Postman-linux-x64-8.3.1/Postman/Postman
+Actions=
+Categories=IDE;X-GNOME-Other;
