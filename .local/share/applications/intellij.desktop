@@ -2,7 +2,7 @@
 Version=1.1
 Type=Application
 Name=IntelliJ IDEA
-Icon=/home/b/idea-IU-203.7148.57/bin/idea.png
-Exec=/home/b/idea-IU-203.7148.57/bin/idea.sh
+Icon=/opt/idea-IU-203.7148.57/bin/idea.png
+Exec=/opt/idea-IU-203.7148.57/bin/idea.sh
 Actions=
 Categories=IDE;X-GNOME-Other;
