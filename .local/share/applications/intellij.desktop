@@ -5,4 +5,4 @@ Name=IntelliJ IDEA
 Icon=/opt/idea-IU-203.7148.57/bin/idea.png
 Exec=/opt/idea-IU-203.7148.57/bin/idea.sh
 Actions=
-Categories=IDE;X-GNOME-Other;
+Categories=Development;IDE;

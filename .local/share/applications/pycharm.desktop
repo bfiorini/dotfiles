@@ -5,4 +5,4 @@ Name=PyCharm
 Icon=/opt/pycharm-community-2021.1.2/bin/pycharm.png
 Exec=/opt/pycharm-community-2021.1.2/bin/pycharm.sh
 Actions=
-Categories=IDE;X-GNOME-Other;
+Categories=Development;IDE;

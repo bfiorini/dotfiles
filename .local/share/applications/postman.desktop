@@ -5,4 +5,4 @@ Name=Postman
 Icon=/opt/Postman-linux-x64-8.3.1/Postman/app/resources/app/assets/icon.png
 Exec=/opt/Postman-linux-x64-8.3.1/Postman/Postman
 Actions=
-Categories=IDE;X-GNOME-Other;
+Categories=Development;X-GNOME-Other;
