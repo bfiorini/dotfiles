@@ -10,3 +10,4 @@ alias aw='cd ~/workspace/'
 alias rgrep="rgrep --color=auto --exclude-dir={.bzr,.cvs,.git,.hg,.svn}"
 
 alias kx="kubectx"
+alias kns="kubens"
