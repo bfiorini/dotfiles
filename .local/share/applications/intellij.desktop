@@ -1,8 +1,8 @@
 [Desktop Entry]
 Version=1.1
 Type=Application
-Name=IntelliJ IDEA
-Icon=/opt/idea-IU-203.7148.57/bin/idea.png
+Name=jetbrains-idea
+Icon=/opt/idea-IU-203.7148.57/bin/idea.svg
 Exec=/opt/idea-IU-203.7148.57/bin/idea.sh
 Actions=
 Categories=Development;IDE;
