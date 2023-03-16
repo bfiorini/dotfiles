@@ -116,5 +116,4 @@ export LD_LIBRARY_PATH="/usr/local/lib"
 [[ /usr/bin/kubectl ]] && source <(kubectl completion zsh)
 
 # fix gcloud python sdk
-export CLOUDSDK_PYTHON="/usr/bin/python2"
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
