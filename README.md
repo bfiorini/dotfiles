@@ -37,6 +37,7 @@ Apps:
 * google-chrome-stable
 * helm
 * htop
+* intelliJ
 * jq
 * kubeadm, kubectl, kubectx, kubelet
 * meld
