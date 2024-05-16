@@ -62,3 +62,6 @@ Bin:
 * stern
 * terraform
 
+* https://github.com/gdubw/gng
+* sdkman
+
